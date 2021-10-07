@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DrupalCon Europe 2021 - Photo Mosiac</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map" style="width: 100vw; height: 100vh;"></div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <script>
+      var map = L.map("map", {
+        maxZoom: 8,
+        minZoom: 3,
+        crs: L.CRS.Simple
+      }).setView([37, 37], 3);
+
+      var southWest = map.unproject([0, 18256], map.getMaxZoom());
+      var northEast = map.unproject([18256, 0], map.getMaxZoom());
+
+      L.tileLayer("layers/{z}/map_{x}_{y}.jpg", {
+        bounds: [
+          [0, 0],
+          [-74, 74]
+        ]
+      }).addTo(map);
+
+      map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+    </script>
+  </body>
+</html>

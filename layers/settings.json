@@ -1,0 +1,9 @@
+{
+	"tile_size" : 256,
+	"levels" : 7,
+	"tiles_in_level" : [2304, 576, 144, 36, 9, 4, 1],
+	"cols_in_level" : [48, 24, 12, 6, 3, 2, 1],
+	"rows_in_level" : [48, 24, 12, 6, 3, 2, 1],
+	"filetype" : "jpg",
+	"background_color" : "#FFF"
+}
