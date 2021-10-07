@@ -27,10 +27,10 @@
 
     <script>
       var map = L.map("map", {
-        maxZoom: 8,
-        minZoom: 3,
+        maxZoom: 6,
+        minZoom: 2,
         crs: L.CRS.Simple
-      }).setView([37, 37], 3);
+      }).setView([20, 20], 2);
 
       var southWest = map.unproject([0, 18256], map.getMaxZoom());
       var northEast = map.unproject([18256, 0], map.getMaxZoom());
@@ -38,7 +38,7 @@
       L.tileLayer("layers/{z}/map_{x}_{y}.jpg", {
         bounds: [
           [0, 0],
-          [-74, 74]
+          [-256, 256]
         ]
       }).addTo(map);
 
